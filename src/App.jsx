@@ -1,10 +1,11 @@
 import React from "react";
-import { Header } from "./Componets";
+import { Header, Slider } from "./Componets";
 
 const App = () => {
   return (
     <div>
       <Header />
+      <Slider />
     </div>
   );
 };

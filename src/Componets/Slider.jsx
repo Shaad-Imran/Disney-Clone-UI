@@ -2,9 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 import { getTrendingVideos } from "../Services/GlobalApi";
 
+// Define a constant for the base URL of movie images
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original";
 
-const screenWidth = window.innerWidth;
+const SCREEN_WIDTH = window.innerWidth; // Store the screen width as a constant
 
 function Slider() {
   const [movieList, setMovieList] = useState([]);
@@ -26,16 +27,16 @@ function Slider() {
 
   // Function to slide the movie list to the right
   const sliderRight = () => {
-    elementRef.current.scrollLeft += screenWidth - 110;
+    elementRef.current.scrollLeft += SCREEN_WIDTH - 110;
   };
 
   // Function to slide the movie list to the left
   const sliderLeft = () => {
-    elementRef.current.scrollLeft -= screenWidth - 110;
+    elementRef.current.scrollLeft -= SCREEN_WIDTH - 110;
   };
 
   return (
-    <div>
+    <section>
       {/* Button to slide the movie list to the left */}
       <HiChevronLeft
         className="hidden md:block text-white text-[30px] absolute mx-8 mt-[150px] cursor-pointer "
@@ -62,7 +63,7 @@ function Slider() {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

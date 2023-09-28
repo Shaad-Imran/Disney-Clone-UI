@@ -1,11 +1,11 @@
 import React from "react";
-import productionHouseList from "../Constant/ProductionHouseList";
+import { productionHouseList } from "../Constant";
 
 const ProductionHouse = () => {
   return (
-    <div className="flex gap-2 md:gap-5 p-2 px-5 md:px-16">
+    <section className="flex gap-2 md:gap-5 p-2 px-5 md:px-16  ">
       {productionHouseList.map((item) => (
-        <div
+        <article
           key={item.id}
           className="border-[2px] border-gray-600
           rounded-lg hover:scale-110 transition-all duration-300
@@ -26,9 +26,9 @@ const ProductionHouse = () => {
             alt={item.image}
             className="w-full z-[1] opacity-100"
           />
-        </div>
+        </article>
       ))}
-    </div>
+    </section>
   );
 };
 

@@ -12,6 +12,7 @@ const MovieList = ({ genreId, index_ }) => {
     getMoviesByGenre();
   }, []);
 
+  // Function to fetch movies by genre from the API
   const getMoviesByGenre = async () => {
     try {
       const response = await getMovieByGenreId(genreId);
@@ -21,9 +22,12 @@ const MovieList = ({ genreId, index_ }) => {
     }
   };
 
+  // Function to slide the movie list to the right
   const slideRight = (element) => {
     element.scrollLeft += 500;
   };
+
+  // Function to slide the movie list to the left
   const slideLeft = (element) => {
     element.scrollLeft -= 500;
   };
@@ -44,6 +48,7 @@ const MovieList = ({ genreId, index_ }) => {
         className="flex overflow-x-auto gap-8
 scrollbar-none scroll-smooth pt-4 px-3 pb-4"
       >
+        {/* Render movie items */}
         {movieList.map((item) => (
           <React.Fragment key={item.id}>
             {index_ % 3 === 0 ? (

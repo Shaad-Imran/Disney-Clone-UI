@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { logo, userprofile } from "../assets";
-import menu from "../Constant/NavMenu"; //importing menu item
+import { menuItems } from "../Constant";
 import { HiDotsVertical } from "react-icons/hi";
 
 import HeaderItem from "./HeaderItem";
@@ -10,6 +10,7 @@ const Header = () => {
 
   return (
     <header className="flex items-center justify-between p-5">
+      {/* Logo and Desktop Navigation */}
       <div className="flex gap-8 items-center">
         <img
           src={logo}
@@ -17,30 +18,33 @@ const Header = () => {
           className="w-[80px] md:w-[115px] object-cover"
         />
 
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-8">
           {/* Create navigation items */}
-          {menu.map((item) => (
-            <HeaderItem key={item.icon} name={item.name} Icon={item.icon} />
+          {menuItems.map((item) => (
+            <HeaderItem key={item.name} name={item.name} Icon={item.icon} />
           ))}
         </nav>
 
+        {/* Mobile Navigation */}
         <nav
-          className="flex md:hidden gap-5"
+          className="flex md:hidden gap-5 cursor-pointer"
           onClick={() => setToggle(!toggle)}
         >
           {/* Create mobile navigation items (up to 3 items) */}
-          {menu.slice(0, 3).map((item) => (
+          {menuItems.slice(0, 3).map((item) => (
             <HeaderItem key={item.icon} name={""} Icon={item.icon} />
           ))}
 
+          {/* Toggle for More Items */}
           <div className="md:hidden">
             <HeaderItem name={""} Icon={HiDotsVertical} />
             {toggle && (
               <div className="absolute mt-3 bg-[#121212] border-[1px] border-gray-700 p-3 px-5 py-4">
                 {/* Create additional mobile navigation items (if toggled) */}
-                {menu.slice(3).map((item) => (
+                {menuItems.slice(3).map((item) => (
                   <HeaderItem
-                    key={item.icon}
+                    key={item.name}
                     Icon={item.icon}
                     name={item.name}
                   />
@@ -51,6 +55,7 @@ const Header = () => {
         </nav>
       </div>
 
+      {/* User Profile */}
       <img
         src={userprofile}
         alt="User Profile"

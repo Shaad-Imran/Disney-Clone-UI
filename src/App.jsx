@@ -1,11 +1,13 @@
 import React from "react";
-import { Header, Slider } from "./Componets";
+import { GenreMovieList, Header, ProductionHouse, Slider } from "./Componets";
 
 const App = () => {
   return (
     <div>
       <Header />
       <Slider />
+      <ProductionHouse />
+      <GenreMovieList />
     </div>
   );
 };
